@@ -5,7 +5,7 @@ import { PropsWithChildren, createContext, useContext } from "react";
 export type FoodContextType = Promise<string[]>;
 type ProviderProps = PropsWithChildren<{
   foodPromise: FoodContextType;
-}>
+}>;
 
 const FoodContext = createContext<FoodContextType | null>(null);
 
@@ -18,10 +18,7 @@ export const useFoodPromise = () => {
   return food;
 };
 
-const FoodProvider = ({
-  children,
-  foodPromise,
-}: ProviderProps) => {
+const FoodProvider = ({ children, foodPromise }: ProviderProps) => {
   return (
     <FoodContext.Provider value={foodPromise}>{children}</FoodContext.Provider>
   );
